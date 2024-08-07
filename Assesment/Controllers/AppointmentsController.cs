@@ -1,19 +1,26 @@
 ﻿using Assesment.Models;
 using Assesment.Repository;
 using Assesment.Repository.IRepository;
+using EmailSmtp;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-
+using Microsoft.Extensions.Configuration;
 namespace Assesment.Controllers
 {
     public class AppointmentsController : Controller
     {
         private readonly IRepository<Product> _productRepository;
         private readonly IRepository<Appointment> _appointmentRepository;
-        public AppointmentsController(ProductRepository productRepository, AppointmentRepository appointmentRepo)
+        private readonly ISmtpEmail _smtpEmailService;
+        private readonly IConfiguration _configuration;
+
+
+        public AppointmentsController(ProductRepository productRepository, AppointmentRepository appointmentRepo, GmailSMTPEmail gmailSMTP, IConfiguration configuration)
         {
             _productRepository = productRepository;
             _appointmentRepository = appointmentRepo;
+            _smtpEmailService = gmailSMTP;
+            _configuration = configuration;
         }
         public IActionResult Index()
         {
@@ -50,7 +57,19 @@ namespace Assesment.Controllers
                 //Add Apointment to Database
                 _appointmentRepository.Add(appointment.Appoint);
                 _appointmentRepository.Save();
-                return RedirectToAction("Home");
+                //Send Email
+                if(appointment.Appoint.Email != null || appointment.Appoint.Email != "")
+                {
+                    _smtpEmailService.ToEmail = appointment.Appoint.Email;
+                    _smtpEmailService.FromEmail = _configuration.GetValue<string>("Email:EmailAddress");
+                    _smtpEmailService.Port = 587;
+                    _smtpEmailService.FromPassword = _configuration.GetValue<string>("Email:Password");
+                    _smtpEmailService.includeSubject("Appointment with XXXX Insurance Brokers(" + appointment.Appoint.Date.ToString() + ")");
+                    _smtpEmailService.includeBody(string.Format("Hello {0} {1}, This is an email confirmation of your Appointment with XXXX Insurance on {2}", appointment.Appoint.Name, appointment.Appoint.Surname, appointment.Appoint.Date));
+                    _smtpEmailService.sendEmail();
+                }
+
+                return RedirectToAction("Index","Home");
             }
             IEnumerable<SelectListItem> productList = _productRepository.GetAll().Select(product => new SelectListItem { Text = product.Name, Value = product.Id.ToString() });
             return View(new AppointmentVM { Appoint = appointment.Appoint, ProductList = productList });
