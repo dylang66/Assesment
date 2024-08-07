@@ -19,7 +19,7 @@
                     <span asp-validation-for="Appoint.Surname" class="text-danger"></span>
                 </div>
                 <div class="form-floating py-3 col-12">
-                    <input asp-for="Appoint.Date" type="date" class="form-control border-0 shadow" />
+                    <input asp-for="Appoint.Date" type="datetime-local" class="form-control border-0 shadow" asp-format="{0:dd.MM.yyyy hh}" />
                     <label asp-for="Appoint.Date" class="ms-2"></label>
                     <span asp-validation-for="Appoint.Date" class="text-danger"></span>
                 </div>
