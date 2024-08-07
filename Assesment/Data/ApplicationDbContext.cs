@@ -9,10 +9,8 @@ namespace Assesment.Data
         {
 
         }
-        public DbSet<User> Users { get; set; }
 
         public DbSet<Product> Products {  get; set; }
-
         public DbSet<Appointment> Appointments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

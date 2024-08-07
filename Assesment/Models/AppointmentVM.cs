@@ -6,7 +6,7 @@ namespace Assesment.Models
 {
     public class AppointmentVM
     {
-        public Appointment Appointment { get; set; }
+        public Appointment Appoint { get; set; }
 
         [ValidateNever]
         public IEnumerable<SelectListItem> ProductList { get; set; }

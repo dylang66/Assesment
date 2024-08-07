@@ -9,45 +9,45 @@
         <form method="post" class="row">
             <div class="border p-3">
                 <div class="form-floating py-3 col-12">
-                    <input asp-for="Appointment.User.Name" type="text" class="form-control border-0 shadow" />
-                    <label asp-for="Appointment.User.Name" class="ms-2"></label>
-                    <span asp-validation-for="Appointment.User.Name" class="text-danger"></span>
+                    <input asp-for="Appoint.Name" type="text" class="form-control border-0 shadow" />
+                    <label asp-for="Appoint.Name" class="ms-2"></label>
+                    <span asp-validation-for="Appoint.Name" class="text-danger"></span>
                 </div>
                 <div class="form-floating py-3 col-12">
-                    <input asp-for="Appointment.User.Surname" type="text" class="form-control border-0 shadow" />
-                    <label asp-for="Appointment.User.Surname" class="ms-2"></label>
-                    <span asp-validation-for="Appointment.User.Surname" class="text-danger"></span>
+                    <input asp-for="Appoint.Surname" type="text" class="form-control border-0 shadow" />
+                    <label asp-for="Appoint.Surname" class="ms-2"></label>
+                    <span asp-validation-for="Appoint.Surname" class="text-danger"></span>
                 </div>
                 <div class="form-floating py-3 col-12">
-                    <input asp-for="Appointment.Date" type="text" class="form-control border-0 shadow" />
-                    <label asp-for="Appointment.Date" class="ms-2"></label>
-                    <span asp-validation-for="Appointment.Date" class="text-danger"></span>
+                    <input asp-for="Appoint.Date" type="date" class="form-control border-0 shadow" />
+                    <label asp-for="Appoint.Date" class="ms-2"></label>
+                    <span asp-validation-for="Appoint.Date" class="text-danger"></span>
                 </div>
                 <div class="form-floating py-3 col-12">
-                    <input asp-for="Appointment.User.Address" type="text" class="form-control border-0 shadow" />
-                    <label asp-for="Appointment.User.Address" class="ms-2"></label>
-                    <span asp-validation-for="Appointment.User.Address" class="text-danger"></span>
+                    <input asp-for="Appoint.Address" type="text" class="form-control border-0 shadow" />
+                    <label asp-for="Appoint.Address" class="ms-2"></label>
+                    <span asp-validation-for="Appoint.Address" class="text-danger"></span>
                 </div>
                 <div class="form-floating py-3 col-12">
-                    <input asp-for="Appointment.User.Email" type="text" class="form-control border-0 shadow" />
-                    <label asp-for="Appointment.User.Email" class="ms-2"></label>
-                    <span asp-validation-for="Appointment.User.Email" class="text-danger"></span>
+                    <input asp-for="Appoint.MobileNumber" type="text" class="form-control border-0 shadow" />
+                    <label asp-for="Appoint.MobileNumber" class="ms-2"></label>
+                    <span asp-validation-for="Appoint.MobileNumber" class="text-danger"></span>
                 </div>
                 <div class="form-floating py-3 col-12">
-                    <input asp-for="Appointment.User.MobileNumber" type="text" class="form-control border-0 shadow" />
-                    <label asp-for="Appointment.User.MobileNumber" class="ms-2"></label>
-                    <span asp-validation-for="Appointment.User.MobileNumber" class="text-danger"></span>
+                    <input asp-for="Appoint.Email" type="text" class="form-control border-0 shadow" />
+                    <label asp-for="Appoint.Email" class="ms-2"></label>
+                    <span asp-validation-for="Appoint.Email" class="text-danger"></span>
                 </div>
                 <div class="form-floating py-3 col-12">
                  
-                    <select asp-for="Appointment.Product" asp-items="@Model.ProductList" class="form-select border-0 shadow"><option disabled selected>--Select Product--</option></select>
-                    <label asp-for="Appointment.Product.Id" class="ms-2"></label>
-                    <span asp-validation-for="Appointment.Product.Id" class="text-danger"></span>
+                    <select asp-for="Appoint.ProductId" asp-items="@Model.ProductList" class="form-select border-0 shadow"><option disabled selected>--Select Product--</option></select>
+                    <label asp-for="Appoint.ProductId" class="ms-2"></label>
+                    <span asp-validation-for="Appoint.ProductId" class="text-danger"></span>
                 </div>
                 <div class="form-floating py-3 col-12">
-                    <input asp-for="Appointment.Comment" type="text" class="form-control border-0 shadow" />
-                    <label asp-for="Appointment.Comment" class="ms-2"></label>
-                    <span asp-validation-for="Appointment.Comment" class="text-danger"></span>
+                    <input asp-for="Appoint.Comment" type="text" class="form-control border-0 shadow" />
+                    <label asp-for="Appoint.Comment" class="ms-2"></label>
+                    <span asp-validation-for="Appoint.Comment" class="text-danger"></span>
                 </div>
                 <div class="row pt-2">
                     <div class="col-6 col-md-3">

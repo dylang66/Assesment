@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using System.Linq.Expressions;
+using System.Xml.Serialization;
 
 namespace Assesment.Repository.IRepository
 {
@@ -8,5 +9,7 @@ namespace Assesment.Repository.IRepository
         IEnumerable<T> GetAll();
 
         void Add(T entity);
+
+        void Save();
     }
 }

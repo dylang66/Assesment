@@ -6,22 +6,22 @@ using System.Collections.Generic;
 
 namespace Assesment.Repository
 {
-    public class ProductRepository : IRepository<Product>
+    public class AppointmentRepository : IRepository<Appointment>
     {
         private ApplicationDbContext _db;
-        internal DbSet<Product> _dbSet;
-        public ProductRepository(ApplicationDbContext db)
+        internal DbSet<Appointment> _dbSet;
+        public AppointmentRepository(ApplicationDbContext db)
         {
             _db = db;
-            _dbSet = _db.Set<Product>();
+            _dbSet = _db.Set<Appointment>();
         }
-        public void Add(Product entity)
+        public void Add(Appointment entity)
         {
             _dbSet.Add(entity);
         }
 
         //Can take properties to be included
-        public IEnumerable<Product> GetAll()
+        public IEnumerable<Appointment> GetAll()
         {
             return _dbSet;
         }
