@@ -13,6 +13,7 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectio
 builder.Services.AddScoped<ProductRepository>();
 builder.Services.AddScoped<AppointmentRepository>();
 builder.Services.AddScoped<GmailSMTPEmail>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

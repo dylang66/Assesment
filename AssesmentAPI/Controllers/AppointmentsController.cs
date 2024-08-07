@@ -15,7 +15,7 @@ namespace AssesmentAPI.Controllers
             _AppointmentRepository = appRepo;
             _logger = logger;
         }
-        .
+        
 
         [HttpGet]
         public IEnumerable<Appointment> Get()
