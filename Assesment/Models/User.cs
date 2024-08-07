@@ -10,7 +10,7 @@ namespace Assesment.Models
         [Required]
         public string Name { get; set; }
         [Required]
-        public int surname { get; set; }
+        public int Surname { get; set; }
 
         public int? MobileNumber { get; set; }
 

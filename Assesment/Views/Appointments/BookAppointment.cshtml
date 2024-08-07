@@ -1,31 +1,60 @@
-﻿@model Appointment
+﻿@model AppointmentVM
 <div class="card shadow border-0 mt-4">
     <div class="card-header bg-secondary bg-gradient m-lg-0 py-3">
         <div class="col-12 text-center">
-            <h2 class="text-white py-2">New Category</h2>
+            <h2 class="text-white py-2">Book An Appointment</h2>
         </div>
     </div>
     <div class="card-body p-4">
         <form method="post" class="row">
             <div class="border p-3">
                 <div class="form-floating py-3 col-12">
-                    <input asp-for="Name" type="text" class="form-control border-0 shadow" />
-                    <label asp-for="Name" class="ms-2"></label>
-
-                    <span asp-validation-for="Name" class="text-danger"></span>
+                    <input asp-for="Appointment.User.Name" type="text" class="form-control border-0 shadow" />
+                    <label asp-for="Appointment.User.Name" class="ms-2"></label>
+                    <span asp-validation-for="Appointment.User.Name" class="text-danger"></span>
                 </div>
                 <div class="form-floating py-3 col-12">
-                    <input asp-for="DisplayOrder" type="text" class="form-control border-0 shadow" />
-                    <label asp-for="DisplayOrder" class="ms-2"></label>
-                    <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+                    <input asp-for="Appointment.User.Surname" type="text" class="form-control border-0 shadow" />
+                    <label asp-for="Appointment.User.Surname" class="ms-2"></label>
+                    <span asp-validation-for="Appointment.User.Surname" class="text-danger"></span>
                 </div>
-
+                <div class="form-floating py-3 col-12">
+                    <input asp-for="Appointment.Date" type="text" class="form-control border-0 shadow" />
+                    <label asp-for="Appointment.Date" class="ms-2"></label>
+                    <span asp-validation-for="Appointment.Date" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-3 col-12">
+                    <input asp-for="Appointment.User.Address" type="text" class="form-control border-0 shadow" />
+                    <label asp-for="Appointment.User.Address" class="ms-2"></label>
+                    <span asp-validation-for="Appointment.User.Address" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-3 col-12">
+                    <input asp-for="Appointment.User.Email" type="text" class="form-control border-0 shadow" />
+                    <label asp-for="Appointment.User.Email" class="ms-2"></label>
+                    <span asp-validation-for="Appointment.User.Email" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-3 col-12">
+                    <input asp-for="Appointment.User.MobileNumber" type="text" class="form-control border-0 shadow" />
+                    <label asp-for="Appointment.User.MobileNumber" class="ms-2"></label>
+                    <span asp-validation-for="Appointment.User.MobileNumber" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-3 col-12">
+                 
+                    <select asp-for="Appointment.Product" asp-items="@Model.ProductList" class="form-select border-0 shadow"><option disabled selected>--Select Product--</option></select>
+                    <label asp-for="Appointment.Product.Id" class="ms-2"></label>
+                    <span asp-validation-for="Appointment.Product.Id" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-3 col-12">
+                    <input asp-for="Appointment.Comment" type="text" class="form-control border-0 shadow" />
+                    <label asp-for="Appointment.Comment" class="ms-2"></label>
+                    <span asp-validation-for="Appointment.Comment" class="text-danger"></span>
+                </div>
                 <div class="row pt-2">
                     <div class="col-6 col-md-3">
-                        <button type="Submit" class="btn btn-primary form-control">Create</button>
+                        <button type="Submit" class="btn btn-primary form-control">Book Appointment</button>
                     </div>
                     <div class="col-6 col-md-3">
-                        <a asp-controller="Category" asp-action="Index" class="btn btn-outline-primary" style="width: 100%">Back To List</a>
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-danger" style="width: 100%">Exit</a>
                     </div>
                 </div>
                 <div asp-validation-summary="ModelOnly" class=" row p-3 text-danger"></div>

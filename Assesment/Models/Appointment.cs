@@ -23,6 +23,6 @@ namespace Assesment.Models
         public int UserId { get; set; }
         public User User { get; set; }
 
-        public string? comment { get; set; }
+        public string? Comment { get; set; }
     }
 }
