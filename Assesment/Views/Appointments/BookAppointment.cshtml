@@ -49,6 +49,7 @@
                     <label asp-for="Appoint.Comment" class="ms-2"></label>
                     <span asp-validation-for="Appoint.Comment" class="text-danger"></span>
                 </div>
+                @Html.AntiForgeryToken();
                 <div class="row pt-2">
                     <div class="col-6 col-md-3">
                         <button type="Submit" class="btn btn-primary form-control">Book Appointment</button>

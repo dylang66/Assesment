@@ -34,6 +34,7 @@ namespace Assesment.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult BookAppointment(AppointmentVM appointment)
         {
             //Validation check if email or mobile is entered correctly
